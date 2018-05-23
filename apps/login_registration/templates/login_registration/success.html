@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+           
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <style>
+                
+                button{width: 70px;
+                      height: 30px;
+                }
+            </style>
+    <title>
+        Survey Form
+    </title>
+    </head>
+    <body>
+        <main role="main">
+        <h2>SURVEY FORM</h2>
+        <form action="/" >
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h2 for="surveyform1">Thanks for visiting! You have submitted this form {{request.session.times}} times now</h2> <br>
+                    <label for="surveyform1">Submitted information</label><br>
+                    <label>Name : </label> {{request.session.name}} <br>
+                    <label>Dojo Location : </label> {{request.session.location}} <br>
+                    <label>Favorite Language: </label> {{request.session.language}} <br>
+                    <label>Comment: </label> {{request.session.comment}} <br>
+                </div>
+                
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Go Back</button>
+        </form>       
+        </main>
+    </body>
+</html>
